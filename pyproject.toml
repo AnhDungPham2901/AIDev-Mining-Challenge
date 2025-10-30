@@ -1,0 +1,15 @@
+[project]
+name = "aidev-mining"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "fastparquet>=2024.11.0",
+    "fsspec>=2025.9.0",
+    "huggingface-hub>=1.0.1",
+    "matplotlib>=3.10.7",
+    "pandas>=2.3.3",
+    "pyarrow>=22.0.0",
+    "seaborn>=0.13.2",
+]
