@@ -1,6 +1,5 @@
 from tree_sitter import Language, Parser
 import ast
-
 # Load built-in Tree-sitter languages
 from tree_sitter_languages import get_language
 
@@ -139,6 +138,8 @@ def parse_with_treesitter(lang_name, code: str):
     }
 
 def extract_definitions(patch: str, lang: str = 'python'):
+    import textwrap
+    patch = textwrap.dedent(patch)
     if lang == "python":
         return parse_python(patch)
     elif lang in LANGUAGES:

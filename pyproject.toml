@@ -8,6 +8,7 @@ dependencies = [
     "fastparquet>=2024.11.0",
     "fsspec>=2025.9.0",
     "huggingface-hub>=1.0.1",
+    "loguru>=0.7.3",
     "matplotlib>=3.10.7",
     "pandas>=2.3.3",
     "pyarrow>=22.0.0",
