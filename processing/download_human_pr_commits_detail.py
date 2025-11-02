@@ -1,8 +1,12 @@
 import requests
 import pandas as pd
 from time import sleep
+from dotenv import load_dotenv
+import os
 
-GITHUB_TOKEN = "github_pat_xxx"  # replace with your token
+load_dotenv()
+
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 headers = {
     "Authorization": f"token {GITHUB_TOKEN}",
     "Accept": "application/vnd.github+json"
@@ -30,7 +34,8 @@ for _, row in missing.iterrows():
                 "additions": f.get("additions"),
                 "deletions": f.get("deletions"),
                 "changes": f.get("changes"),
-                "patch": f.get("patch")
+                "patch": f.get("patch"),
+                "message": data.get("commit", {}).get("message")
             })
     else:
         print(f"Failed {sha}: {r.status_code}")
