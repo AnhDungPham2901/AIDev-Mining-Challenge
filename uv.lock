@@ -18,6 +18,7 @@ dependencies = [
     { name = "python-dotenv" },
     { name = "requests" },
     { name = "seaborn" },
+    { name = "tqdm" },
     { name = "tree-sitter" },
     { name = "tree-sitter-languages" },
 ]
@@ -35,6 +36,7 @@ requires-dist = [
     { name = "python-dotenv", specifier = ">=1.2.1" },
     { name = "requests", specifier = ">=2.32.5" },
     { name = "seaborn", specifier = ">=0.13.2" },
+    { name = "tqdm", specifier = ">=4.67.1" },
     { name = "tree-sitter", specifier = "==0.20.4" },
     { name = "tree-sitter-languages", specifier = "==1.10.2" },
 ]

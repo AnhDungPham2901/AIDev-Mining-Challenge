@@ -32,6 +32,7 @@ async def fetch_commit_detail(
     sha: str,
     repo: str,
     pr_id: str,
+    repo_id: str,
     semaphore: asyncio.Semaphore
 ) -> List[Dict[str, Any]]:
     """
@@ -65,7 +66,7 @@ async def fetch_commit_detail(
                         results.append({
                             "sha": sha,
                             "pr_id": pr_id,
-                            "repo_id": data.get("repository", {}).get("id"),
+                            "repo_id": repo_id,
                             "file": file_data.get("filename"),
                             "status": file_data.get("status"),
                             "additions": file_data.get("additions"),
@@ -126,7 +127,8 @@ async def fetch_all_commits(
                 session=session,
                 sha=row["sha"],
                 repo=row["repo"],
-                pr_id=str(row.get("pr_id", "")),
+                pr_id=row.get("pr_id"),
+                repo_id=row.get("repo_id"),
                 semaphore=semaphore
             )
             tasks.append(task)
