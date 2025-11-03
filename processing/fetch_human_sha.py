@@ -28,49 +28,6 @@ MAX_CONCURRENT_REQUESTS = 10
 REQUEST_TIMEOUT = 30
 
 
-async def fetch_pr_details(
-    session: aiohttp.ClientSession,
-    pr_number: int,
-    repo: str,
-    semaphore: asyncio.Semaphore
-) -> int | None:
-    """
-    Fetch PR details to get the repo_id.
-    
-    Args:
-        session: aiohttp client session
-        pr_number: PR number
-        repo: repository in format "owner/repo"
-        semaphore: semaphore to limit concurrent requests
-        
-    Returns:
-        repo_id or None if failed
-    """
-    url = f"https://api.github.com/repos/{repo}/pulls/{pr_number}"
-    headers = {
-        "Authorization": f"token {GITHUB_TOKEN}",
-    }
-    
-    async with semaphore:
-        try:
-            async with session.get(url, headers=headers, timeout=REQUEST_TIMEOUT) as response:
-                if response.status == 200:
-                    logger.info(f"Fetched PR #{pr_number} in {repo}")
-                    pr_data = await response.json()
-                    repo_id = pr_data.get("base", {}).get("repo", {}).get("id")
-                    return repo_id
-                elif response.status == 403:
-                    logger.error(f"Rate limit exceeded or forbidden for PR #{pr_number}")
-                    await asyncio.sleep(60)
-                    return None
-                else:
-                    logger.error(f"Failed to fetch PR #{pr_number}: HTTP {response.status}")
-                    return None
-        except Exception as e:
-            logger.error(f"Error fetching PR details #{pr_number}: {str(e)}")
-            return None
-
-
 async def fetch_pr_commits(
     session: aiohttp.ClientSession,
     pr_id: str,
@@ -91,10 +48,7 @@ async def fetch_pr_commits(
     Returns:
         List of dictionaries containing pr_id, pr_number, repo, repo_id, and sha
     """
-    # First, fetch PR details to get repo_id
-    repo_id = await fetch_pr_details(session, pr_number, repo, semaphore)
     
-    # Then fetch commits
     url = f"https://api.github.com/repos/{repo}/pulls/{pr_number}/commits"
     headers = {
         "Authorization": f"token {GITHUB_TOKEN}",
@@ -113,11 +67,10 @@ async def fetch_pr_commits(
                             "pr_id": pr_id,
                             "pr_number": pr_number,
                             "repo": repo,
-                            "repo_id": repo_id,
                             "sha": commit.get("sha")
                         })
                     
-                    logger.info(f"Fetched {len(results)} commits for PR #{pr_number} in {repo} (repo_id: {repo_id})")
+                    logger.info(f"Fetched {len(results)} commits for PR #{pr_number} in {repo}")
                     return results
                     
                 elif response.status == 404:
@@ -230,5 +183,5 @@ def load_and_fetch_pr_commits(
 
 if __name__ == "__main__":
     # Load and process human PR data
-    input_path = "/Users/dungp@backbase.com/Documents/aidev-mining/data/human_pr_repo.parquet"
+    input_path = "/Users/dungp@backbase.com/Documents/aidev-mining/data/github/input/human_pr_repo.parquet"
     result_df = load_and_fetch_pr_commits(input_path, max_concurrent=10)

@@ -32,7 +32,6 @@ async def fetch_commit_detail(
     sha: str,
     repo: str,
     pr_id: str,
-    repo_id: str,
     semaphore: asyncio.Semaphore
 ) -> List[Dict[str, Any]]:
     """
@@ -66,7 +65,6 @@ async def fetch_commit_detail(
                         results.append({
                             "sha": sha,
                             "pr_id": pr_id,
-                            "repo_id": repo_id,
                             "file": file_data.get("filename"),
                             "status": file_data.get("status"),
                             "additions": file_data.get("additions"),
@@ -128,8 +126,7 @@ async def fetch_all_commits(
                 sha=row["sha"],
                 repo=row["repo"],
                 pr_id=row.get("pr_id"),
-                repo_id=row.get("repo_id"),
-                semaphore=semaphore
+                semaphore=semaphore,
             )
             tasks.append(task)
         
@@ -202,8 +199,7 @@ def load_and_fetch_commits(
 
 if __name__ == "__main__":
     # example with 1 fetch_commit_detail
-    input_path = "/Users/dungp@backbase.com/Documents/aidev-mining/data/test_df.parquet"
-    output_path = "/Users/dungp@backbase.com/Documents/aidev-mining/data/test_df_with_file_level_details.parquet"
+    input_path = "/Users/dungp@backbase.com/Documents/aidev-mining/data/github/input/human_pr_repo_with_shas_part_1.parquet"
+    output_path = "/Users/dungp@backbase.com/Documents/aidev-mining/data/github/output/human_pr_commit_details_part_1.parquet"
     max_concurrent = 10
     result_df = load_and_fetch_commits(input_path, output_path, max_concurrent)
-    print(result_df.head())
