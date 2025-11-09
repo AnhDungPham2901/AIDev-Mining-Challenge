@@ -38,3 +38,4 @@ HUMAN_PR_COMMIT_DETAILS_DF_PATH = os.path.join(GITHUB_DATA_DIR, "output", "human
 ANALYSIS_1_1_DF_PATH = os.path.join(DATA_DIR, "analysis", "analysis_1_1_df.parquet")
 ANALYSIS_1_2_1_DF_PATH = os.path.join(DATA_DIR, "analysis", "analysis_1_2_1_df.parquet")
 ANALYSIS_1_2_2_DF_PATH = os.path.join(DATA_DIR, "analysis", "analysis_1_2_2_df.parquet") 
+ANALYSIS_2_1_1_DF_PATH = os.path.join(DATA_DIR, "analysis", "analysis_2_1_1_df.parquet") 
