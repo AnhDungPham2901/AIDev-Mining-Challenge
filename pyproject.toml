@@ -32,4 +32,5 @@ dependencies = [
     "transformers==4.45.2",
     "tree-sitter==0.20.4",
     "tree-sitter-languages==1.10.2",
+    "xgboost==2.1.4",
 ]
