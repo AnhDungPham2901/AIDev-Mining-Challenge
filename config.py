@@ -45,3 +45,4 @@ BENCHMARK_COMMITBENCH_DF_PATH = os.path.join(DATA_DIR, "benchmark", "commitbench
 
 
 INFERENCE_COMMIT_MESSAGE_GENERATION_DF_PATH = os.path.join(DATA_DIR, "inference", "input", "commit_message_generation_df.parquet")
+INFERENCE_COMMIT_MESSAGE_GENERATION_OUTPUT_DF_PATH = os.path.join(DATA_DIR, "inference", "output", "commit_message_gen_result.parquet")
