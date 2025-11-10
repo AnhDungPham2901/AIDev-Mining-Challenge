@@ -46,3 +46,5 @@ BENCHMARK_COMMITBENCH_DF_PATH = os.path.join(DATA_DIR, "benchmark", "commitbench
 
 INFERENCE_COMMIT_MESSAGE_GENERATION_DF_PATH = os.path.join(DATA_DIR, "inference", "input", "commit_message_generation_df.parquet")
 INFERENCE_COMMIT_MESSAGE_GENERATION_OUTPUT_DF_PATH = os.path.join(DATA_DIR, "inference", "output", "commit_message_gen_result.parquet")
+LLM_AS_JUDGE_DF_PATH = os.path.join(DATA_DIR, "analysis", "llm_as_judge_df.parquet")
+LLM_AS_JUDGE_WITH_SCORES_DF_PATH = os.path.join(DATA_DIR, "analysis", "llm_as_judge_with_scores_df.parquet")
