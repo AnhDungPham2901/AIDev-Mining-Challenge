@@ -39,6 +39,9 @@ ANALYSIS_1_1_DF_PATH = os.path.join(DATA_DIR, "analysis", "analysis_1_1_df.parqu
 ANALYSIS_1_2_1_DF_PATH = os.path.join(DATA_DIR, "analysis", "analysis_1_2_1_df.parquet")
 ANALYSIS_1_2_2_DF_PATH = os.path.join(DATA_DIR, "analysis", "analysis_1_2_2_df.parquet") 
 ANALYSIS_2_1_1_DF_PATH = os.path.join(DATA_DIR, "analysis", "analysis_2_1_1_df.parquet") 
+ANALYSIS_2_1_2_DF_PATH = os.path.join(DATA_DIR, "analysis", "analysis_2_1_1_df_with_embedding.parquet")
+ANALYSIS_2_1_3_DF_PATH = os.path.join(DATA_DIR, "analysis", "benchmark_df_with_embedding.parquet")
+ANALYSIS_2_1_4_DF_PATH = os.path.join(DATA_DIR, "analysis", "commit_patch_similarity_df.parquet")
 
 BENCHMARK_DF_PATH = os.path.join(DATA_DIR, "benchmark", "pr_sim_benchmark_df.parquet")
 BENCHMARK_COMMITBENCH_DF_PATH = os.path.join(DATA_DIR, "benchmark", "commitbench_df.parquet")
