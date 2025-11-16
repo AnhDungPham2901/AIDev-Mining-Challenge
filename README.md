@@ -29,3 +29,9 @@ Resume from previous run:
 ```
 python processing/build_human_pr_commit_details_df.py -o data/output.parquet --resume
 ```
+
+# Code and Data
+We uploaded the data files and the whole code to Google Drive: https://drive.google.com/file/d/1vgMOl1R3oNwn3yuJIvVrzKzDA9NGfBIH/view?usp=drive_link
+
+# Google Colab
+The inference for commit message generation, and generate embeddings are run on Google Colab. You can find the code and the output of the runs here: https://drive.google.com/drive/folders/1tD_-t9q-3bhLX0-3suuxojvbgucMAHGD?usp=sharing
