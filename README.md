@@ -19,6 +19,12 @@ GITHUB_TOKEN_1=your_github_token_1
 GITHUB_TOKEN_2=your_github_token_2
 ```
 
+# Code structure
+- `notebooks/`: This folder contains the main code for this research project
+- `processing/`: This folder contains the utils for processing the data and the code to build the human PR commit details dataframe
+- `inference/`: This folder contains the code we use to run the inference on Google Colab
+- `data/`: This folder contains the data of the processing steps. Find this folder
+
 
 # Command to build human PR commit details dataframe
 First time run:
