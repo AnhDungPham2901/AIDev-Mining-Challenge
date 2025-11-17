@@ -24,6 +24,7 @@ GITHUB_TOKEN_2=your_github_token_2
 - `processing/`: This folder contains the utils for processing the data and the code to build the human PR commit details dataframe
 - `inference/`: This folder contains the code we use to run the inference on Google Colab
 - `data/`: This folder contains the data of the processing steps. Find this folder
+- `plots/`: This folder contains the plots of the analysis results
 
 
 # Command to build human PR commit details dataframe
