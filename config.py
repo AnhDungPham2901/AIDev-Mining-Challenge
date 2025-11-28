@@ -44,6 +44,7 @@ ANALYSIS_2_1_3_DF_PATH = os.path.join(DATA_DIR, "analysis", "benchmark_df_with_e
 ANALYSIS_2_1_4_DF_PATH = os.path.join(DATA_DIR, "analysis", "commit_patch_similarity_df.parquet")
 
 BENCHMARK_DF_PATH = os.path.join(DATA_DIR, "benchmark", "pr_sim_benchmark_df.parquet")
+BENCHMARK_COMMIT_PR_DESC_DF_PATH = os.path.join(DATA_DIR, "benchmark", "commit_pr_desc_benchmark_df.parquet")
 BENCHMARK_COMMITBENCH_DF_PATH = os.path.join(DATA_DIR, "benchmark", "commitbench_df.parquet")
 
 
